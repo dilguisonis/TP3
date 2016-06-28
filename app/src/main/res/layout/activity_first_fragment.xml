@@ -3,10 +3,115 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="ar.edu.ort.juego.FirstFragment">
-    <TextView
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="First Fragment 101" />
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+
+        tools:context="ar.edu.ort.juego.FirstFragment">
+
+        <edu.ort.ar.juego.CustomButton
+            android:id="@+id/imageButton1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="15px"
+            android:layout_weight="1"
+            android:src="@drawable/chicha" />
+
+        <edu.ort.ar.juego.CustomButton
+            android:id="@+id/imageButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="15px"
+            android:layout_weight="1"
+            android:src="@drawable/chicha" />
+
+        <edu.ort.ar.juego.CustomButton
+            android:id="@+id/imageButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="15px"
+            android:layout_weight="1"
+            android:src="@drawable/chicha" />
+
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+
+        tools:context="ar.edu.ort.juego.FirstFragment">
+
+        <edu.ort.ar.juego.CustomButton
+            android:id="@+id/imageButton4"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="15px"
+            android:layout_weight="1"
+            android:src="@drawable/chicha" />
+
+        <edu.ort.ar.juego.CustomButton
+            android:id="@+id/imageButton5"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="15px"
+            android:layout_weight="1"
+            android:src="@drawable/chicha" />
+
+        <edu.ort.ar.juego.CustomButton
+            android:id="@+id/imageButton6"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="15px"
+            android:layout_weight="1"
+            android:src="@drawable/chicha" />
+
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+
+        tools:context="ar.edu.ort.juego.FirstFragment">
+
+        <edu.ort.ar.juego.CustomButton
+            android:id="@+id/imageButton7"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="15px"
+            android:layout_weight="1"
+            android:src="@drawable/chicha" />
+
+        <edu.ort.ar.juego.CustomButton
+            android:id="@+id/imageButton8"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="15px"
+            android:layout_weight="1"
+            android:src="@drawable/chicha" />
+
+        <edu.ort.ar.juego.CustomButton
+            android:id="@+id/imageButton9"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="15px"
+            android:layout_weight="1"
+            android:src="@drawable/chicha" />
+
+    </LinearLayout>
+
+
+
 
 </LinearLayout>

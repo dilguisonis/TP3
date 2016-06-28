@@ -38,7 +38,7 @@ public class SecondFragment extends Fragment {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.nav_gallery:
+            case R.id.nav_trash:
                 Log.d("gallery", "ison");
                 break;
         }

@@ -11,6 +11,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private FragmentTabHost tabHost;
     private String userName="";
+    private String color="";
     private TextView navUserName;
 
     @Override
@@ -66,11 +69,11 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(MenuItem item) {
                 item.setChecked(true);
                 switch(item.getItemId()) {
-                    case R.id.nav_camera:
+                    case R.id.nav_reset:
                         Log.d("Choose:","Camera");
                         tabHost.setCurrentTab(0);
                         break;
-                    case R.id.nav_gallery:
+                    case R.id.nav_trash:
                         Log.d("Choose:","Gallery");
                         tabHost.setCurrentTab(1);
                         break;
@@ -79,6 +82,12 @@ public class MainActivity extends AppCompatActivity {
                         FragmentManager fm = getSupportFragmentManager();
                         UserNameDialog userNameDialog = new UserNameDialog();
                         userNameDialog.show(fm, "fragment_edit_name");
+                        break;
+                    case R.id.nav_background:
+                        Log.d("Choose:","Send");
+                        FragmentManager fmi = getSupportFragmentManager();
+                        ColorSelectDialog ColorSelectDialog = new ColorSelectDialog();
+                        ColorSelectDialog.show(fmi, "fragment_spinner");
                         break;
                 }
 
@@ -106,8 +115,19 @@ public class MainActivity extends AppCompatActivity {
         navUserName.setText(userName); // Setear el texto en la cabecera del drawer
     }
 
+    public void onItemSelected(int pos) {
+        //tabHost.getTabContentView().getChildAt(pos).setBackgroundColor(getResources().getColor(R.color.Rojo));
+    }
     public String getUserName() {
         return userName;
     }
+
+
+
+    private void getColor(String a) {
+        color = a;
+    }
+
+
 
 }

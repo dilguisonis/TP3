@@ -28,7 +28,7 @@ public class FirstFragment extends Fragment implements View.OnClickListener {
     CustomButton button8;
     CustomButton button9;
     View v;
-    Jugada j;
+    Jugada j = null;
 
     int contador = 0;
     String jugadas = null;

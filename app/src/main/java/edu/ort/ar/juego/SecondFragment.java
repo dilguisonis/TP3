@@ -8,15 +8,19 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import org.w3c.dom.Text;
 
 
 public class SecondFragment extends Fragment {
 
+    Jugada j;
+    View v;
 
-    public SecondFragment() {
-        // Required empty public constructor
-    }
+    private TextView Hola;
+
+
 
 
     @Override
@@ -25,7 +29,18 @@ public class SecondFragment extends Fragment {
 
         setHasOptionsMenu(true); // to show actionbar icon calling onCreateOptionsMenu
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.activity_second_fragment, container, false);
+
+
+
+        v= inflater.inflate(R.layout.activity_second_fragment, container, false);
+
+        MainActivity ma = (MainActivity)getActivity();
+        ma.setJ(j);
+        Hola = (TextView)v.findViewById(R.id.lolazo);
+        Hola.setText(j.jugadas);
+
+
+        return v;
     }
 
     @Override
@@ -44,4 +59,5 @@ public class SecondFragment extends Fragment {
         }
         return true;
     }
+
 }

@@ -28,6 +28,7 @@ public class FirstFragment extends Fragment implements View.OnClickListener {
     CustomButton button8;
     CustomButton button9;
     View v;
+    Jugada j;
 
     int contador = 0;
     String jugadas = null;
@@ -98,31 +99,30 @@ public class FirstFragment extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.imageButton1:
-                Log.d("lol","lolazo");
                button1.flip();
                button2.flip();
                button4.flip();
-                jugadas+= "1, ";
+                j.jugadas+= "1, ";
                 break;
             case R.id.imageButton2:
                 button1.flip();
                 button2.flip();
                 button3.flip();
                 button5.flip();
-                jugadas+= "2, ";
+                j.jugadas += "2, ";
                 break;
             case R.id.imageButton3:
                 button2.flip();
                 button3.flip();
                 button6.flip();
-                jugadas+= "3, ";
+                j.jugadas+= "3, ";
                 break;
             case R.id.imageButton4:
                 button1.flip();
                 button7.flip();
                 button4.flip();
                 button5.flip();
-                jugadas+= "4, ";
+                j.jugadas+= "4, ";
                 break;
             case R.id.imageButton5:
                 button4.flip();
@@ -130,44 +130,45 @@ public class FirstFragment extends Fragment implements View.OnClickListener {
                 button6.flip();
                 button5.flip();
                 button8.flip();
-                jugadas+= "5, ";
+                j.jugadas+= "5, ";
                 break;
             case R.id.imageButton6:
                 button3.flip();
                 button5.flip();
                 button6.flip();
                 button9.flip();
-                jugadas+= "6, ";
+                j.jugadas+= "6, ";
                 break;
             case R.id.imageButton7:
                 button4.flip();
                 button7.flip();
                 button8.flip();
-                jugadas+= "7, ";
+                j.jugadas+= "7, ";
                 break;
             case R.id.imageButton8:
                 button8.flip();
                 button5.flip();
                 button7.flip();
                 button9.flip();
-                jugadas+= "8, ";
+                j.jugadas+= "8, ";
                 break;
             case R.id.imageButton9:
                 button8.flip();
                 button6.flip();
                 button9.flip();
-                jugadas+= "9, ";
+                j.jugadas+= "9, ";
                 break;
         }
-        contador++;
+        j.contador++;
         if (button1.lolazo == true && button2.lolazo == true && button3.lolazo == true && button4.lolazo == true && button5.lolazo == true && button6.lolazo == true && button7.lolazo == true && button8.lolazo == true && button9.lolazo == true)
         {
             MainActivity ma = (MainActivity)getActivity();
             user= ma.getUserName();
-            Toast.makeText(getActivity(), "ganaste "+ user + " - " + jugadas + " - " + contador, Toast.LENGTH_SHORT).show();
-            jugadas = null;
-            contador = 0;
 
+            Toast.makeText(getActivity(), "ganaste "+ user + " - " + jugadas + " - " + contador, Toast.LENGTH_SHORT).show();
+
+            j.jugadas = null;
+            j.contador = 0;
             button1.reset();
             button2.reset();
             button3.reset();
@@ -183,7 +184,10 @@ public class FirstFragment extends Fragment implements View.OnClickListener {
         {
             MainActivity ma = (MainActivity)getActivity();
             user= ma.getUserName();
+            ma.setJ(j);
+
             Toast.makeText(getActivity(),"ganaste "+ user + " - " + jugadas + " - " + contador, Toast.LENGTH_LONG).show();
+
             jugadas = null;
             contador = 0;
             button1.reset();

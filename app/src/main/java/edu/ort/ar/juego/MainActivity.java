@@ -17,11 +17,18 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    Jugada j;
     private DrawerLayout drawerLayout;
     private FragmentTabHost tabHost;
     private String userName="";
     private String color="";
+
+    public int puntaje=0;
+    public String jugadas=null;
+
     private TextView navUserName;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +41,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public Jugada getJ() {
+        return j;
+    }
 
+    public void setJ(Jugada j) {
+        this.j = j;
+    }
 
     private void inicializarToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -115,12 +128,24 @@ public class MainActivity extends AppCompatActivity {
         navUserName.setText(userName); // Setear el texto en la cabecera del drawer
     }
 
+
+
     public void onItemSelected(int pos) {
         //tabHost.getTabContentView().getChildAt(pos).setBackgroundColor(getResources().getColor(R.color.Rojo));
     }
+
+
     public String getUserName() {
         return userName;
     }
+    public String getJugadas() {
+        return jugadas;
+    }
+    public int getPuntaje() {
+        return puntaje;
+    }
+
+
 
 
 

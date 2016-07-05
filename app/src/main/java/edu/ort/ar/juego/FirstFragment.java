@@ -169,7 +169,7 @@ public class FirstFragment extends Fragment implements View.OnClickListener {
                 break;
         }
 
-
+        //hola
         if (button1.lolazo == true && button2.lolazo == true && button3.lolazo == true && button4.lolazo == true && button5.lolazo == true && button6.lolazo == true && button7.lolazo == true && button8.lolazo == true && button9.lolazo == true)
         {
             MainActivity ma = (MainActivity)getActivity();

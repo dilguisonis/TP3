@@ -8,15 +8,21 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 
 public class SecondFragment extends Fragment {
 
     Jugada j;
     View v;
+    ListView listVW;
+    ArrayList<Jugada> ArrayJugadas;
 
     private TextView Hola;
 
@@ -30,15 +36,14 @@ public class SecondFragment extends Fragment {
         setHasOptionsMenu(true); // to show actionbar icon calling onCreateOptionsMenu
         // Inflate the layout for this fragment
 
-
-
+        ArrayJugadas = new ArrayList<Jugada>();
         v= inflater.inflate(R.layout.activity_second_fragment, container, false);
-
         MainActivity ma = (MainActivity)getActivity();
-        ma.setJ(j);
-        Hola = (TextView)v.findViewById(R.id.lolazo);
-        Hola.setText(j.jugadas);
-
+        listVW = (ListView) v.findViewById(R.id.listview);
+        j = ma.getJ();
+        ArrayJugadas.add(j);
+        JugadaAdapter adapter = new JugadaAdapter(getContext(), ArrayJugadas);
+        listVW.setAdapter(adapter);
 
         return v;
     }

@@ -15,6 +15,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 
 public class FirstFragment extends Fragment implements View.OnClickListener {
 
@@ -28,10 +30,14 @@ public class FirstFragment extends Fragment implements View.OnClickListener {
     CustomButton button8;
     CustomButton button9;
     View v;
-    Jugada j = null;
+    Jugada j;
+    ArrayList<Jugada> ArrayJugadas;
 
-    int contador = 0;
-    String jugadas = null;
+
+
+
+
+
     String user;
 
     public FirstFragment() {
@@ -71,6 +77,9 @@ public class FirstFragment extends Fragment implements View.OnClickListener {
         button8.setOnClickListener(this);
         button9.setOnClickListener(this);
 
+        ArrayJugadas = new ArrayList<>();
+
+        j = new Jugada("","",0);
         return v;
 
     }
@@ -86,8 +95,7 @@ public class FirstFragment extends Fragment implements View.OnClickListener {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_reset:
-                contador = 0;
-                jugadas =  null;
+                j = new Jugada("", "", 0);
                 button1.reset();button2.reset();button3.reset();button4.reset();button5.reset();button6.reset();button7.reset();button8.reset();button9.reset();
                 break;
         }
@@ -97,12 +105,13 @@ public class FirstFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
+        j.contador++;
         switch (view.getId()) {
             case R.id.imageButton1:
                button1.flip();
                button2.flip();
                button4.flip();
-                j.jugadas+= "1, ";
+                j.jugadas += "1, ";
                 break;
             case R.id.imageButton2:
                 button1.flip();
@@ -159,16 +168,18 @@ public class FirstFragment extends Fragment implements View.OnClickListener {
                 j.jugadas+= "9, ";
                 break;
         }
-        j.contador++;
+
+
         if (button1.lolazo == true && button2.lolazo == true && button3.lolazo == true && button4.lolazo == true && button5.lolazo == true && button6.lolazo == true && button7.lolazo == true && button8.lolazo == true && button9.lolazo == true)
         {
             MainActivity ma = (MainActivity)getActivity();
             user= ma.getUserName();
+            j.username = user.toString();
+            ma.setJ(j);
+            Toast.makeText(getActivity(), "ganaste "+ user + " - " + j.jugadas + " - " + j.contador, Toast.LENGTH_SHORT).show();
 
-            Toast.makeText(getActivity(), "ganaste "+ user + " - " + jugadas + " - " + contador, Toast.LENGTH_SHORT).show();
+            j = new Jugada("", "", 0);
 
-            j.jugadas = null;
-            j.contador = 0;
             button1.reset();
             button2.reset();
             button3.reset();
@@ -184,12 +195,11 @@ public class FirstFragment extends Fragment implements View.OnClickListener {
         {
             MainActivity ma = (MainActivity)getActivity();
             user= ma.getUserName();
+            j.username = user.toString();
             ma.setJ(j);
+            Toast.makeText(getActivity(),"ganaste "+ user + " - " + j.jugadas + " - " + j.contador, Toast.LENGTH_LONG).show();
+            j = new Jugada("", "", 0);
 
-            Toast.makeText(getActivity(),"ganaste "+ user + " - " + jugadas + " - " + contador, Toast.LENGTH_LONG).show();
-
-            jugadas = null;
-            contador = 0;
             button1.reset();
             button2.reset();
             button3.reset();

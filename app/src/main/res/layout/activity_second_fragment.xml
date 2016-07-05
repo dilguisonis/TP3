@@ -4,15 +4,9 @@
     android:layout_height="match_parent"
     tools:context="edu.ort.ar.juego.SecondFragment">
 
-    <TextView
-        android:id="@+id/lolazo"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="soy un textview" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="soy un edittext" />
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"/>
 
     </FrameLayout>

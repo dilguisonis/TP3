@@ -13,7 +13,10 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
     public int puntaje=0;
     public String jugadas=null;
+    ListView listVW;
 
     private TextView navUserName;
 
@@ -36,8 +40,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+
+        listVW = (ListView) findViewById(R.id.listview);
+
         inicializarToolbar(); // Setear Toolbar como action bar
         inicializarTabs(); // Crear los tabs
+
+
 
     }
 
@@ -48,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
     public void setJ(Jugada j) {
         this.j = j;
     }
+
+
 
     private void inicializarToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);

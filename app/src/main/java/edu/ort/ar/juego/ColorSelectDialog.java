@@ -34,10 +34,10 @@ public class ColorSelectDialog extends DialogFragment {
         categoriaCp = (Spinner) view.findViewById(R.id.spinner);
 
         final ArrayList<String> Colores = new ArrayList<>();
-        Colores.add("Electronica");
-        Colores.add("Calzado");
-        Colores.add("Hogar");
-        Colores.add("Automoviles");
+        Colores.add("Rojo");
+        Colores.add("Negro");
+        Colores.add("Azul");
+        Colores.add("Blanco");
         final ArrayAdapter<String> categAdapter;
         categAdapter = new ArrayAdapter<>(getActivity(),android.R.layout.simple_spinner_item,Colores);
         categAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
@@ -53,7 +53,7 @@ public class ColorSelectDialog extends DialogFragment {
                 int color = categoriaCp.getSelectedItemPosition();
                 String colorloco = categoriaCp.getSelectedItem().toString();
                 mainActivity.onItemSelected(color);
-               // mainActivity.getColor(colorloco);
+               //mainActivity.getColor(colorloco);
                 dismiss();
             }
         });

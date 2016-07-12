@@ -1,6 +1,7 @@
 package edu.ort.ar.juego;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,12 +52,13 @@ public class JugadaAdapter extends BaseAdapter {
         TextView TVJugadas = (TextView)view.findViewById(R.id.jugadas);
         TextView TVUsername = (TextView)view.findViewById(R.id.username);
         TextView TVContador = (TextView)view.findViewById(R.id.contador);
-
         Jugada j = ArrayJugadas.get(position);
-
         TVJugadas.setText(j.jugadas);
         TVUsername.setText(j.username);
         TVContador.setText(String.valueOf(j.contador));
+
+
+
 
         return view;
     }

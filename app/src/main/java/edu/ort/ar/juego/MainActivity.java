@@ -1,5 +1,7 @@
 package edu.ort.ar.juego;
 
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
@@ -32,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView navUserName;
 
+    baseTP3SQLiteHelper accesoBaseTP3;
+    SQLiteDatabase baseDatos;
+
 
 
     @Override
@@ -47,16 +52,30 @@ public class MainActivity extends AppCompatActivity {
         inicializarToolbar(); // Setear Toolbar como action bar
         inicializarTabs(); // Crear los tabs
 
-
-
     }
 
     public Jugada getJ() {
         return j;
     }
 
-    public void setJ(Jugada j) {
-        this.j = j;
+    public void setJ(Jugada j1) {
+
+        this.j = j1;
+
+        if (baseDeDatosAbierta() == true)
+        {
+            ContentValues nuevoRegistro;
+
+            nuevoRegistro   =new ContentValues();
+            if (j.username == null){
+                j.username = "jugador";
+            }
+            nuevoRegistro.put("Usuario", j.username);
+            nuevoRegistro.put("Contador", j.contador);
+            nuevoRegistro.put("Jugada", j.jugadas);
+
+            baseDatos.insert("Jugadas", null, nuevoRegistro);
+        }
     }
 
 
@@ -143,10 +162,10 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void onItemSelected(int pos) {
-        //tabHost.getTabContentView().getChildAt(pos).setBackgroundColor(getResources().getColor(R.color.Rojo));
+        tabHost.getTabContentView().getChildAt(pos).setBackgroundColor(getResources().getColor(R.color.Rojo));
     }
 
-
+    public String getColor(){return color;}
     public String getUserName() {
         return userName;
     }
@@ -159,10 +178,19 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
-    private void getColor(String a) {
-        color = a;
+    Boolean baseDeDatosAbierta(){
+        Boolean responder;
+        accesoBaseTP3=new baseTP3SQLiteHelper(this, "baseTP3", null, 1);
+        baseDatos=accesoBaseTP3.getWritableDatabase();
+        if (baseDatos!= null)
+        {
+            responder = true;
+        }
+        else
+        {
+            responder = true;
+        }
+        return responder;
     }
 
 

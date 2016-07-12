@@ -174,7 +174,7 @@ public class FirstFragment extends Fragment implements View.OnClickListener {
         {
             MainActivity ma = (MainActivity)getActivity();
             user= ma.getUserName();
-            j.username = user.toString();
+                j.username = user.toString();
             ma.setJ(j);
             Toast.makeText(getActivity(), "ganaste "+ user + " - " + j.jugadas + " - " + j.contador, Toast.LENGTH_SHORT).show();
 
